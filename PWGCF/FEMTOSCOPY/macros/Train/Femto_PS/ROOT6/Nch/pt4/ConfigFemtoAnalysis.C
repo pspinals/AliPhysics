@@ -173,10 +173,11 @@ AliFemtoManager* ConfigFemtoAnalysis(const char* params) {
 	//Reader->SetUseMultiplicity(AliFemtoEventReaderESDChain::kGlobalCount);
 
 
-	AliFemtoEventReaderAODChain *Reader = new AliFemtoEventReaderAODChain();
+	AliFemtoEventReaderAODMultSelection* Reader = new AliFemtoEventReaderAODMultSelection();
+	//AliFemtoEventReaderAODChain *Reader = new AliFemtoEventReaderAODChain();
 	Reader->SetFilterMask(filterbit);
 	Reader->SetDCAglobalTrack(ifGlobalTracks); //false for FB7, true for the rest //we do not use DCA at all
-	Reader->SetUseMultiplicity(AliFemtoEventReaderAOD::kReference);
+	Reader->SetUseMultiplicity(AliFemtoEventReaderAODMultSelection::kReference);
 	Reader->SetMinPlpContribSPD(minPlpContribSPD);
 	Reader->SetIsPileUpEvent(ifIsPileUp);
 	Reader->SetReadV0(kTRUE);
